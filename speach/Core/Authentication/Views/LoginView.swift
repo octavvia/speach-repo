@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email = ""
-    @State private var password = ""
+    @StateObject var viewModel = LoginViewModel()
     var body: some View {
         NavigationStack{
             
@@ -20,10 +19,10 @@ struct LoginView: View {
                 Text(" disini ikonnya")
                 
                 VStack{
-                    TextField( " Enter yaour Email", text : $email)
+                    TextField( " Enter yaour Email", text : $viewModel.email)
                         .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                         .modifier(SpeachTextFieldModifier())
-                    SecureField("Enter yaour Password", text : $password)
+                    SecureField("Enter yaour Password", text : $viewModel.password)
                         .modifier(SpeachTextFieldModifier())
                 }
                     NavigationLink {
@@ -40,6 +39,7 @@ struct LoginView: View {
                    
                     
                     Button{
+                        Task { try await viewModel.login() }
                         
                     } label:{
                         Text("Login")

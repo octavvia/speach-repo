@@ -1,24 +1,28 @@
+////
+////  ContentView.swift
+////  speach
+////
+////  Created by Aulia Octaviani on 23/05/24.
+////
 //
-//  ContentView.swift
-//  speach
-//
-//  Created by Aulia Octaviani on 23/05/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = ContentViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if viewModel.userSession != nil {
+                SpeachTabView()
+            } else {
+                LoginView()
+            }
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }

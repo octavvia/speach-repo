@@ -38,6 +38,7 @@ struct CreateSpeachView: View {
                 Spacer()
                 
             }
+            .padding()
             .navigationTitle("New Speach")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{

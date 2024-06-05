@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct RegristationView: View {
-    @State private var email = ""
-    @State private var password = ""
-    @State private var fullname = ""
-    @State private var username = ""
+    @StateObject var viewModel = RegisterationViewModel()
+   
     
     @Environment(\.dismiss) var dismiss
     
@@ -21,17 +19,18 @@ struct RegristationView: View {
             Text(" disini ikonnya")
             
             VStack{
-                TextField( " Enter yaour Email", text : $email)
+                TextField( " Enter yaour Email", text : $viewModel.email)
+                    .autocapitalization(.none)
                     .modifier(SpeachTextFieldModifier())
-                SecureField("Enter yaour Password", text : $password)
+                SecureField("Enter yaour Password", text : $viewModel.password)
                     .modifier(SpeachTextFieldModifier())
-                TextField( " Enter yaour full name", text : $fullname)
+                TextField( " Enter yaour full name", text : $viewModel.fullname)
                     .modifier(SpeachTextFieldModifier())
-                TextField( " Enter yaour username", text : $username)
+                TextField( " Enter yaour username", text : $viewModel.username)
                     .modifier(SpeachTextFieldModifier())
             }
             Button{
-                dismiss()
+                Task { try await viewModel.createUser()}
             } label:{
                 Text("Sign Up")
                     .modifier(ButtonSpeachModifier())
