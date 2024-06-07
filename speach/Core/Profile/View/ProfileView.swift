@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @StateObject var viewModel = ProfileViewModel()
     @State private var selectFilters: ProfileSpeachFilter = .speachs
     @Namespace var animation
     
     private var filterBarWidth: CGFloat {
         let count = CGFloat(ProfileSpeachFilter.allCases.count)
         return (UIScreen.main.bounds.width - 20 * (count - 1)) / count
+    }
+    
+    private var currentUser: User? {
+        return viewModel.currentUser
     }
 
     var body: some View {
@@ -25,17 +30,23 @@ struct ProfileView: View {
                         VStack(alignment: .leading, spacing: 12) {
                             // full name and username
                             VStack(alignment: .leading,spacing: 4) {
-                                Text("Charles Sight")
+                                Text(currentUser?.fullname ?? "")
                                     .font(.title2)
                                     .fontWeight(.semibold)
                                 
-                                Text("0xfkz_charlessight")
+                                Text(currentUser?.username ?? "")
                                     .font(.subheadline)
                                 
                             }
                             
-                            Text("Something about Cryprocurrency and AirDrop insight!!! follow for meme coin insight now")
-                                .font(.footnote)
+                            if let bio = currentUser?.bio {
+                                Text(bio)
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                            }
+                            
+//                            Text(currentUser?.bio ?? "")
+//                                .font(.footnote)
                             
                             Text("200k followers")
                                 .font(.caption)

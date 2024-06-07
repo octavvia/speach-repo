@@ -28,7 +28,7 @@ struct SpeachSelf: View {
                         Button{
                             
                         } label: {
-                            Image(systemName: "elipsis")
+                            Image(systemName: "ellipsis")
                                 .foregroundColor(Color(.darkGray))
                         }
                     }

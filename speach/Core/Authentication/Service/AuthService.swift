@@ -25,6 +25,7 @@ class AuthService {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = result.user
+            try await UserService.shared.fetchCurrentUser()
         } catch {
             print("DEBUG: Failed \(error.localizedDescription)")
         }
@@ -48,6 +49,7 @@ class AuthService {
     func signOut() {
         try? Auth.auth().signOut() // -> this for backend (firebase)
         self.userSession = nil // -> remove session
+        UserService.shared.reset() // -> reset user
     }
     
     // menyimpan data di firestore

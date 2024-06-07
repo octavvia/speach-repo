@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct UserSelf: View {
+//    let user = User
+    
+//    init(user: User) {
+//          _viewModel = StateObject(wrappedValue: UserSelf(user: user))
+//      }
+//    
     var body: some View {
         HStack {
             ProfileImageView()
             
             VStack(alignment: .leading){
-                Text("namename")
+//                Text(user.username)
+                Text("usename")
                     .fontWeight(.semibold)
                 
-                Text("Max Vertase")
+//                Text(user.fullname)
+                Text("user.fullname")
             }
             .font(.footnote)
             Spacer()
@@ -33,6 +41,12 @@ struct UserSelf: View {
     }
 }
 
-#Preview {
-    UserSelf()
+//#Preview {
+//    UserSelf()
+//}
+
+struct UserSelf_Previews: PreviewProvider {
+    static var previews: some View {
+        UserSelf()
+    }
 }
