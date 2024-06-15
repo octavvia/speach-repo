@@ -1,19 +1,4 @@
-Speach adalah aplikasi sosial media sederhana untuk berbagi tips mengenai crypto secara tertutup, dikembangkan menggunakan SwiftUI dan Firebase.
-
-#### Fitur Utama:
-Autentikasi Pengguna: Login dan registrasi menggunakan Firebase Authentication.
-
-Profil Pengguna: Setiap pengguna memiliki profil yang dapat diperbarui.
-
-Berbagi Tips Trading: Pengguna dapat membuat dan berbagi postingan tips trading.
-
-Komentar dan Reaksi: Interaksi melalui komentar dan reaksi pada postingan.
-
-Notifikasi: Pemberitahuan untuk aktivitas penting.
-
-Keamanan: Hanya pengguna yang diundang yang dapat mengakses aplikasi.
-
-Speach menyediakan platform aman bagi para trader untuk berbagi wawasan dalam lingkungan yang privat, memanfaatkan SwiftUI untuk antarmuka yang efisien dan Firebase untuk backend yang andal.
+Speach adalah aplikasi sosial media sederhana untuk portofolio swift, dikembangkan menggunakan SwiftUI dan Firebase.
 
 #### Figma :
 
